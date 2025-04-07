@@ -14,9 +14,16 @@ const getSum = () => {
         totalPrice += parseFloat(priceElement.textContent); // Convert text to float and add to total
     });
 
+    // Check if a total row already exists and remove it
+    const existingTotalRow = document.querySelector('.total-row');
+    if (existingTotalRow) {
+        existingTotalRow.remove();
+    }
+
     // Create a new row for the total price
     const table = document.querySelector('table');
     const totalRow = document.createElement('tr');
+    totalRow.classList.add('total-row'); // Add a class for easy identification
     const totalCell = document.createElement('td');
     
     // Set the total cell content
